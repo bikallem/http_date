@@ -18,8 +18,11 @@ disagree.
 ## Install
 
 ```prolog
-?- pack_install('.').
+?- pack_install(http_date).
 ```
+
+To install from a checkout of this repository, run `pack_install('.')` from
+the repository root.
 
 ## Use
 
