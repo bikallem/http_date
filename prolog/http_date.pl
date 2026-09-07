@@ -42,13 +42,10 @@ days_in_month(Y, M, N) :-
     month(M, _, N0),
     ( M =:= 2, leap_year(Y) -> N is N0 + 1 ; N = N0 ).
 
-literal([]) --> [].
-literal([C|Cs]) --> [C], literal(Cs).
+day_name(D, short) --> { day(D, _, Cs, _) }, Cs.
+day_name(D, long)  --> { day(D, _, _, Cs) }, Cs.
 
-day_name(D, short) --> { day(D, _, Cs, _) }, literal(Cs).
-day_name(D, long)  --> { day(D, _, _, Cs) }, literal(Cs).
-
-month_name(M) --> { month(M, Cs, _) }, literal(Cs).
+month_name(M) --> { month(M, Cs, _) }, Cs.
 
 ndigits(0, []) --> [].
 ndigits(N, [C|Cs]) -->
